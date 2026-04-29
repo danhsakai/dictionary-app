@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <title>dictionary-app</title>
+  </head>
+  <body>
+    <main id="app" class="dictionary-app">
+      <header class="dictionary-app__header">
+        <iconify-icon
+          class="dictionary-app__logo"
+          icon="material-symbols:book-3-outline"
+          width="24"
+          height="24"
+          style="color: #fff"
+        ></iconify-icon>
+        <div class="dictionary-app__header-controls">
+          <div class="dictionary-app__font-picker">
+            <button class="dictionary-app__font-trigger" type="button">
+              Serif<iconify-icon
+                class="dictionary-app__font-trigger-icon"
+                icon="material-symbols:keyboard-arrow-down-rounded"
+                width="24"
+                height="24"
+                style="color: #000"
+              ></iconify-icon>
+            </button>
+            <ul class="dictionary-app__font-menu">
+              <li class="dictionary-app__font-menu-item">Sans Serif</li>
+              <li class="dictionary-app__font-menu-item">Mono</li>
+              <li class="dictionary-app__font-menu-item">Serif</li>
+            </ul>
+          </div>
+          <div class="dictionary-app__theme-switch">
+            <button
+              class="dictionary-app__theme-toggle"
+              type="button"
+              aria-label="Toggle dark theme"
+              aria-pressed="false"
+            >
+              <span class="dictionary-app__theme-toggle-track">
+                <span class="dictionary-app__theme-toggle-thumb"></span>
+              </span>
+            </button>
+            <iconify-icon
+              class="dictionary-app__theme-icon"
+              icon="material-symbols:moon-stars-outline-rounded"
+              width="24"
+              height="24"
+              style="color: #000"
+            ></iconify-icon>
+          </div>
+        </div>
+      </header>
+      <section class="dictionary-app__search">
+        <input
+          class="dictionary-app__search-input"
+          type="text"
+          aria-label="Search for a word"
+        />
+        <button>
+          <iconify-icon
+            class="dictionary-app__search-icon"
+            icon="material-symbols:search-rounded"
+            width="24"
+            height="24"
+            style="color: #000"
+          ></iconify-icon>
+        </button>
+      </section>
+      <section class="dictionary-app__entry">
+        <div class="dictionary-app__entry-header">
+          <div class="dictionary-app__entry-title-group">
+            <h1 class="dictionary-app__word">chicken</h1>
+            <p class="dictionary-app__phonetic">/ˈt͡ʃɪkɪn/</p>
+          </div>
+          <button
+            class="dictionary-app__audio-button"
+            type="button"
+            aria-label="Play pronunciation"
+          >
+            <iconify-icon
+              class="dictionary-app__audio-icon"
+              icon="material-symbols:play-arrow-rounded"
+              width="24"
+              height="24"
+              style="color: #000"
+            ></iconify-icon>
+          </button>
+        </div>
+        <div class="dictionary-app__entry-body">
+          <div class="dictionary-app__part-of-speech"><span>noun</span></div>
+          <h3 class="dictionary-app__section-title">Meaning</h3>
+          <ul class="dictionary-app__meaning-list">
+            <li class="dictionary-app__meaning-item">
+              <p class="dictionary-app__meaning-text">
+                A domestic fowl, Gallus gallus, especially when young.
+              </p>
+              <p class="dictionary-app__meaning-example">
+                Why do you refuse to fight? Huh, I guess you're just too
+                chicken.
+              </p>
+            </li>
+            <li class="dictionary-app__meaning-item">
+              The meat from this bird eaten as food.
+            </li>
+            <li class="dictionary-app__meaning-item">
+              The young of any bird; a chick
+            </li>
+          </ul>
+          <p class="dictionary-app__synonyms">Synonyms: biddy</p>
+        </div>
+        <div class="dictionary-app__source">
+          <p class="dictionary-app__source-label">Source:</p>
+          <a
+            class="dictionary-app__source-link"
+            href="https://en.wiktionary.org/wiki/chick"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://en.wiktionary.org/wiki/chick</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
