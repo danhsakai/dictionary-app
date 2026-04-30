@@ -48,19 +48,25 @@ async function getWord(word) {
 }
 console.log(await getWord('word'));
 async function analytic(data) {
-  const word = await getWord(data);
-  wordEntry.insertAdjacentHTML('beforebegin', renderHeader(word));
-  renderBody(word.meanings);
-  renderSource(word.source);
-  playAudio(word.audio);
+  try {
+    const word = await getWord(data);
+    wordEntry.insertAdjacentHTML('beforebegin', renderHeader(word));
+    renderBody(word.meanings);
+    renderSource(word.name);
+    playAudio(word.audio);
+  } catch {
+    renderError(
+      `Sorry, we couldn't find the word "${data}". Please try another word.`,
+    );
+  }
 }
-await analytic('animal');
+await analytic('tourist');
 
 function renderHeader(word) {
   return `<div class="dictionary-app__entry-header">
           <div class="dictionary-app__entry-title-group">
             <h1 class="dictionary-app__word">${word.name}</h1>
-            <p class="dictionary-app__phonetic">${word.phonetic}/</p>
+            <p class="dictionary-app__phonetic">${word.phonetic}</p>
           </div>
           <button
             class="dictionary-app__audio-button"
@@ -119,17 +125,17 @@ function renderSynonyms(synonyms, target) {
     ? displaySynonyms.join(', ')
     : 'None';
 }
-function renderSource(source) {
+function renderSource(word) {
   wordEntry.insertAdjacentHTML(
     'beforeend',
     `<hr><div class="dictionary-app__source">
           <p class="dictionary-app__source-label">Source:</p>
           <a
             class="dictionary-app__source-link"
-            href="${source}"
+            href="https://en.wiktionary.org/wiki/${word}"
             target="_blank"
             rel="noopener noreferrer"
-            >${source}</a
+            >https://en.wiktionary.org/wiki/${word}</a
           >
         </div>
     `,
@@ -146,6 +152,15 @@ async function playAudio(sourceAudio) {
     });
   });
 }
+function renderError(message) {
+  wordEntry.insertAdjacentHTML(
+    'beforebegin',
+    `<div class="dictionary-app__error" style="padding: 24px; text-align: center;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 12px;">😔</h2>
+      <p style="font-size: 1.1rem; color: #666;">${message}</p>
+    </div>`,
+  );
+}
 function getSearchValue() {
   const runSearch = () => {
     const searchWord = inputWord.value.trim();
@@ -156,14 +171,21 @@ function getSearchValue() {
       previousHeader.remove();
     }
 
+    const previousError = wordEntry.previousElementSibling;
+    if (previousError?.classList.contains('dictionary-app__error')) {
+      previousError.remove();
+    }
+
     wordEntry.innerHTML = '';
     analytic(searchWord);
   };
 
   btnSearch.addEventListener('click', runSearch);
-  inputWord.addEventListener('input', (event) => {
-    event.preventDefault();
-    runSearch();
+  inputWord.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runSearch();
+    }
   });
 }
 getSearchValue();

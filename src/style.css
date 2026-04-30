@@ -270,6 +270,9 @@ main {
 .dictionary-app__meaning-item {
   margin-top: 12px;
 }
+.dictionary-app__meaning-item::marker {
+  color: hsl(274, 82%, 55%);
+}
 .dictionary-app__meaning-example {
   color: #b0b0b0;
   font-style: italic;
