@@ -14,12 +14,14 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
+    scrollbar-gutter: stable;
   }
 }
 
 body {
   /* 4. Increase line-height */
   line-height: 1.5;
+  font-size: 16px;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
@@ -72,4 +74,225 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+main {
+  font-family: 'Merriweather', serif;
+  width: 60%;
+  margin: 0 auto;
+  min-width: 800px;
+  font-size: 1.2rem;
+}
+.dictionary-app__header {
+  width: 100%;
+  display: flex;
+  padding: 24px 0;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dictionary-app__header-controls,
+.dictionary-app__theme-switch {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+.dictionary-app__font-picker {
+  position: relative;
+  width: 180px;
+  text-align: left;
+}
+.dictionary-app__font-menu {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 8px;
+  left: 0;
+  top: 120%;
+  display: none;
+  width: 100%;
+  border-radius: 8px;
+
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.dictionary-app__font-menu--active {
+  display: block;
+}
+.dictionary-app__font-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 4px 24px;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.dictionary-app__font-menu-item {
+  list-style-type: none;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 1005;
+}
+.dictionary-app__font-menu-item:hover {
+  background-color: hsla(274, 82%, 60%, 0.05);
+  color: hsl(274, 82%, 55%);
+}
+.dictionary-app__theme-toggle {
+  border: none;
+  position: relative;
+  width: 52px;
+  height: 28px;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.dictionary-app__theme-toggle-track {
+  width: 100%;
+  background-color: #ccc;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
+  border-radius: 999px;
+}
+.dictionary-app__theme-toggle:hover .dictionary-app__theme-toggle-track {
+  background-color: #b0b0b0;
+}
+.dictionary-app__theme-toggle-thumb {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 3px;
+  transition: left 0.3s ease;
+  left: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.dictionary-app__theme-toggle-thumb--active {
+  left: 27px;
+}
+.dictionary-app__theme-icon {
+  margin-left: 8px;
+}
+.dictionary-app__search {
+  width: 100%;
+  background-color: #f4f4f4;
+  display: flex;
+  height: 100%;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+.dictionary-app__search-input {
+  width: 100%;
+  border: none;
+  padding: 12px 12px;
+  background-color: #f4f4f4;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+.dictionary-app__search-input:focus {
+  outline: none;
+}
+.dictionary-app__search button {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  margin-left: 12px;
+}
+.dictionary-app__entry {
+  margin-top: 64px;
+}
+.dictionary-app__entry-header {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.dictionary-app__phonetic {
+  color: hsl(274, 82%, 55%);
+}
+.dictionary-app__audio-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dictionary-app__audio-button {
+  border-radius: 50%;
+  padding: 8px;
+  border: none;
+  background-color: hsla(274, 82%, 55%, 0.2);
+  cursor: pointer;
+}
+.dictionary-app__entry-body {
+  margin-top: 54px;
+}
+.dictionary-app__part-of-speech {
+  font-style: italic;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+}
+.dictionary-app__part-of-speech span {
+  background-color: #fff;
+  z-index: 1;
+  padding-right: 12px;
+}
+.dictionary-app__part-of-speech::after {
+  content: '';
+  border-top: 1px solid #b0b0b0;
+  width: 100%;
+  position: absolute;
+  height: auto;
+}
+.dictionary-app__section-title {
+  color: #b0b0b0;
+  margin: 32px 0;
+  font-size: 1.1rem;
+}
+.dictionary-app__meaning-list {
+  width: 100%;
+}
+.dictionary-app__meaning-item {
+  margin-top: 12px;
+}
+.dictionary-app__meaning-example {
+  color: #b0b0b0;
+  font-style: italic;
+  margin-top: 4px;
+}
+.dictionary-app__source {
+  display: flex;
+  flex-wrap: wrap;
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  gap: 8px;
+}
+hr {
+  margin: 32px 0;
+}
+.dictionary-app__source-link {
+  color: #000;
+  text-decoration: underline;
+  font-size: 1.1rem;
+}
+.dictionary-app__synonyms {
+  margin-top: 24px;
+}
+.dictionary-app__synonyms span {
+  color: hsl(274, 82%, 55%);
 }
