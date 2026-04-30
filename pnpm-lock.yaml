@@ -11,6 +11,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      '@iconify/json':
+        specifier: ^2.2.466
+        version: 2.2.468
     devDependencies:
       vite:
         specifier: npm:@voidzero-dev/vite-plus-core@latest
@@ -20,6 +24,12 @@ importers:
         version: 0.1.19(@voidzero-dev/vite-plus-core@0.1.19)
 
 packages:
+
+  '@iconify/json@2.2.468':
+    resolution: {integrity: sha512-vfW6JQdYiHAFnCRZN6H5uzObcFBTaAguNaKqUpeazDLz5DO7R2UM8StyM/+v8d8KP15SfrQzG9aZy4uF9lViVQ==}
+
+  '@iconify/types@2.0.0':
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
   '@oxc-project/runtime@0.126.0':
     resolution: {integrity: sha512-oksjxfqDNmIYMGlIgLzYgnz5YjZax27RtQezsPpKEGo9AC5LOaIGHsivCCeaAWdCtPnRyjZXM/7svreCC8kZVQ==}
@@ -587,6 +597,9 @@ packages:
       oxlint-tsgolint:
         optional: true
 
+  pathe@2.0.3:
+    resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -654,6 +667,13 @@ packages:
         optional: true
 
 snapshots:
+
+  '@iconify/json@2.2.468':
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 2.0.3
+
+  '@iconify/types@2.0.0': {}
 
   '@oxc-project/runtime@0.126.0': {}
 
@@ -995,6 +1015,8 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.60.0
       '@oxlint/binding-win32-x64-msvc': 1.60.0
       oxlint-tsgolint: 0.21.1
+
+  pathe@2.0.3: {}
 
   picocolors@1.1.1: {}
 
