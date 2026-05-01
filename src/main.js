@@ -203,7 +203,12 @@ function changeFont() {
     if (font.toLowerCase() == "serif") main.style.fontFamily = "var(--font-serif)";
 
     if (font.toLowerCase() == "mono") main.style.fontFamily = "var(--font-mono)";
-    btnMenu.textContent = font;
+    btnMenu.innerHTML = `${font}<iconify-icon
+                class="dictionary-app__font-trigger-icon"
+                icon="material-symbols:keyboard-arrow-down-rounded"
+                width="36"
+                height="36"
+              ></iconify-icon>`;
     menuFont.classList.toggle("dictionary-app__font-menu--active");
   });
 }

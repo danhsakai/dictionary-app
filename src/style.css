@@ -361,6 +361,12 @@ hr {
   color: var(--color-accent);
 }
 
+@media (max-width: 1440px) {
+  main {
+    width: 90%;
+    font-size: 1.1rem;
+  }
+}
 @media (max-width: 768px) {
   main {
     width: 90%;
@@ -384,11 +390,5 @@ hr {
   }
   .dictionary-app__source-label {
     font-size: 1rem;
-  }
-}
-@media (max-width: 1440px) {
-  main {
-    width: 90%;
-    font-size: 1.1rem;
   }
 }
