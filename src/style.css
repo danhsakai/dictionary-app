@@ -113,6 +113,7 @@ body {
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
+  margin: 0 auto;
 }
 
 body[data-theme="dark"] {
@@ -123,7 +124,7 @@ main {
   font-family: "Merriweather", serif;
   width: 60%;
   margin: 0 auto;
-  min-width: 800px;
+  min-width: 480px;
   font-size: 1.2rem;
 }
 .dictionary-app__header {
@@ -353,4 +354,15 @@ hr {
 }
 .dictionary-app__synonyms span {
   color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  main {
+    min-width: 96%;
+  }
 }

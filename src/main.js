@@ -62,7 +62,7 @@ async function analytic(data) {
     wordEntry.insertAdjacentHTML("beforebegin", renderHeader(word));
     renderBody(word.meanings);
     renderSource(word.name);
-    playAudio(word.audio);
+    void playAudio(word.audio);
   } catch {
     renderError(`Sorry, we couldn't find the word "${data}". Please try another word.`);
   }
@@ -181,7 +181,7 @@ function getSearchValue() {
     }
 
     wordEntry.innerHTML = "";
-    analytic(searchWord);
+    void analytic(searchWord);
   };
 
   btnSearch.addEventListener("click", runSearch);
