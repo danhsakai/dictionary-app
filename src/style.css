@@ -359,10 +359,24 @@ hr {
 @media (max-width: 768px) {
   main {
     width: 90%;
+    font-size: 1.1rem;
+  }
+  .dictionary-app__source-link {
+    font-size: 1.1rem;
+  }
+  .dictionary-app__source-label {
+    font-size: 1.1rem;
   }
 }
 @media (max-width: 480px) {
   main {
-    min-width: 96%;
+    min-width: 92%;
+    font-size: 1rem;
+  }
+  .dictionary-app__source-link {
+    font-size: 1rem;
+  }
+  .dictionary-app__source-label {
+    font-size: 1rem;
   }
 }
