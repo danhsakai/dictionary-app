@@ -149,8 +149,11 @@ async function playAudio(sourceAudio) {
   const btnPlayAudio = document.querySelector(".dictionary-app__audio-button");
   if (!btnPlayAudio || !sourceAudio) return;
 
+  const phonetic = new Audio(sourceAudio);
+
   btnPlayAudio.addEventListener("click", () => {
-    const phonetic = new Audio(sourceAudio);
+    // Reset playback position so rapid clicks don't overlap or create multiple instances
+    phonetic.currentTime = 0;
     phonetic.play().catch((error) => {
       console.error("Failed to play audio:", error);
     });
