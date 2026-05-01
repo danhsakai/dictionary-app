@@ -1,4 +1,5 @@
 import "./style.css";
+const main = document.querySelector("main");
 const switchTrack = document.querySelector(".dictionary-app__theme-toggle-track");
 const btnToggle = document.querySelector(".dictionary-app__theme-toggle");
 const btnMenu = document.querySelector(".dictionary-app__font-trigger");
@@ -55,7 +56,7 @@ async function getWord(word) {
     throw error;
   }
 }
-console.log(await getWord("word"));
+
 async function analytic(data) {
   try {
     const word = await getWord(data);
@@ -67,7 +68,6 @@ async function analytic(data) {
     renderError(`Sorry, we couldn't find the word "${data}". Please try another word.`);
   }
 }
-await analytic("tourist");
 
 function renderHeader(word) {
   return `<div class="dictionary-app__entry-header">
@@ -192,4 +192,21 @@ function getSearchValue() {
     }
   });
 }
+
+function changeFont() {
+  menuFont.addEventListener("click", (e) => {
+    const font = e.target.textContent;
+    if (!font) return;
+    if (font.toLowerCase() == "sans serif") {
+      main.style.fontFamily = "var(--font-sans)";
+    }
+    if (font.toLowerCase() == "serif") main.style.fontFamily = "var(--font-serif)";
+
+    if (font.toLowerCase() == "mono") main.style.fontFamily = "var(--font-mono)";
+    btnMenu.textContent = font;
+    menuFont.classList.toggle("dictionary-app__font-menu--active");
+  });
+}
+changeFont();
+await analytic("greet");
 getSearchValue();

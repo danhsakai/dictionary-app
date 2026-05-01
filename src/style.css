@@ -89,6 +89,10 @@ h6 {
   --color-accent-soft: hsla(274, 82%, 55%, 0.2);
   --color-track: #ccc;
   --color-track-hover: #b0b0b0;
+  --font-sans: "Lato", sans-serif;
+  --font-serif: "Merriweather", serif;
+  --font-mono: "Google Sans Code", monospace;
+  --font-family: var(--font-serif);
 }
 
 body[data-theme="dark"] {
@@ -121,8 +125,9 @@ body[data-theme="dark"] {
 }
 
 main {
-  font-family: "Merriweather", serif;
+  font-family: var(--font-family);
   width: 60%;
+  min-width: 768px;
   margin: 0 auto;
   min-width: 480px;
   font-size: 1.2rem;
@@ -145,7 +150,7 @@ main {
 }
 .dictionary-app__font-picker {
   position: relative;
-  width: 180px;
+  width: 200px;
   text-align: left;
 }
 .dictionary-app__font-menu {
@@ -359,7 +364,7 @@ hr {
 @media (max-width: 768px) {
   main {
     width: 90%;
-    min-width: 768px;
+    max-width: 768px;
     font-size: 1.1rem;
   }
   .dictionary-app__source-link {
@@ -371,7 +376,7 @@ hr {
 }
 @media (max-width: 480px) {
   main {
-    min-width: 92%;
+    min-width: 90%;
     font-size: 1rem;
   }
   .dictionary-app__source-link {
@@ -379,5 +384,11 @@ hr {
   }
   .dictionary-app__source-label {
     font-size: 1rem;
+  }
+}
+@media (max-width: 1440px) {
+  main {
+    width: 90%;
+    font-size: 1.1rem;
   }
 }
