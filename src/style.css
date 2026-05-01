@@ -359,6 +359,7 @@ hr {
 @media (max-width: 768px) {
   main {
     width: 90%;
+    min-width: 768px;
     font-size: 1.1rem;
   }
   .dictionary-app__source-link {
